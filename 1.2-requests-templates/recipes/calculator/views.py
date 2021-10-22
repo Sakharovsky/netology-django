@@ -28,3 +28,18 @@ DATA = {
 #     'ингредиент2': количество2,
 #   }
 # }
+
+def calculator(request, dish):
+    try:
+        servings = int(request.GET.get('servings'))
+    except TypeError:
+        servings = 1
+    
+    context = {
+        'dish': dish,
+        'servings': servings,
+        'recipe': {item: round(value * servings, 2) for item, value in DATA[dish].items()}
+        }
+
+    return render(request, 'calculator/index.html', context)
+
