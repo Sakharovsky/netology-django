@@ -10,11 +10,18 @@
         <div class="row">
             {% for book in books %}
                 <div class="book col-md-4">
-                    <h2><a href="/books/{{ book.pub_date }}">{{ book.name }}</a></h2>
+                    <h2>{{ book.name }}</h2>
                     <p>Автор: {{ book.author }}</p>
                     <p>Дата публикации: {{ book.pub_date }}</p>
                 </div>
             {% endfor %}
         </div>
+        {% if has_previous != 0 %}
+            <a class="button button-primary" href="/books/{{ has_previous }}">⟵ {{ has_previous }} </a>
+        {% endif %}
+        <!-- <a class="button disabled" href="">{{ page.number }}</a> -->
+        {% if has_next != 0 %}
+            <a class="button button-primary" href="/books/{{ has_next }}"> {{ has_next }} ⟶</a>
+        {% endif %}
     </div>
 {% endblock %}
