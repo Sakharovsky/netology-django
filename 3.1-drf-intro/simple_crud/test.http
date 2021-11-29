@@ -1,0 +1,50 @@
+
+GET http://127.0.0.1:8000/api/v1/project/
+content-type: application/json
+
+###
+
+POST http://127.0.0.1:8000/api/v1/project/
+content-type: application/json
+
+{
+    "name": "Puding",
+    "latitude": "552255.46",
+    "longitude": "376223.84"
+}
+
+###
+
+PUT http://127.0.0.1:8000/api/v1/project/4/
+content-type: application/json
+
+{
+    "name": "Puding",
+    "latitude": "552255.46",
+    "longitude": "376223.84"
+}
+
+###
+
+GET http://127.0.0.1:8000/api/v1/measurement/
+content-type: application/json
+
+###
+
+POST http://127.0.0.1:8000/api/v1/measurement/
+content-type: application/json
+
+{
+    "value": "36.6",
+    "project": "1"
+}
+
+###
+
+PUT http://127.0.0.1:8000/api/v1/measurement/1/
+content-type: application/json
+
+{
+    "value": "36.7",
+    "project": "1"
+}
