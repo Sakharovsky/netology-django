@@ -1,4 +1,6 @@
+from xml.dom import ValidationErr
 from django.contrib.auth.models import User
+from django.forms import ValidationError
 from rest_framework import serializers
 
 from advertisements.models import Advertisement
@@ -37,9 +39,10 @@ class AdvertisementSerializer(serializers.ModelSerializer):
         validated_data["creator"] = self.context["request"].user
         return super().create(validated_data)
 
-    def validate(self, data):
+    def validate(self, attrs):
         """Метод для валидации. Вызывается при создании и обновлении."""
-
+        print(attrs)
         # TODO: добавьте требуемую валидацию
-
-        return data
+        if Advertisement.objects.filter(status="OPEN", creator_id=self.context["request"].user).count() > 10:
+            return ValidationError('Exceeded number of opened advertisements')
+        return attrs
