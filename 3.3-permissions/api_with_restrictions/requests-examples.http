@@ -45,6 +45,6 @@ Content-Type: application/json
 
 # пробуем удалять пост без токена
 
-DELETE {{baseUrl}}/advertisements/4/
+DELETE {{baseUrl}}/advertisements/10/
 Content-Type: application/json
 Authorization: Token b87dca35c984827565c3987af76bf98674f476d6
