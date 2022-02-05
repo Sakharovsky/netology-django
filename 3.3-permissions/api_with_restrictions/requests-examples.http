@@ -21,7 +21,7 @@ Authorization: Token b87dca35c984827565c3987af76bf98674f476d6
 ###
 
 # попытка поменять объявление
-PATCH {{baseUrl}}/advertisements/1/
+PATCH {{baseUrl}}/advertisements/5/
 Content-Type: application/json
 Authorization: Token b87dca35c984827565c3987af76bf98674f476d6
 
