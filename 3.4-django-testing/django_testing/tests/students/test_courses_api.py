@@ -11,7 +11,7 @@ def test_example():
 def test_create_course(client, course_factory):
     course_factory(_quantity=1)
     course_item = Course.objects.first()
-    url = reverse("courses-list")
+    url = reverse("courses-detail", args=(course_item.id, ))
     # url = 'http://127.0.0.1:8000/api/v1/courses/'
     response = client.get(url)
     print(response.data)
