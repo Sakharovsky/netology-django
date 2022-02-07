@@ -21,6 +21,8 @@ from students.views import CoursesViewSet
 
 router = DefaultRouter()
 router.register("courses", CoursesViewSet, basename="courses")
+import pprint
+pprint.pprint(router.get_urls())
 
 urlpatterns = [
     path('admin/', admin.site.urls),

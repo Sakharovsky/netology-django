@@ -56,6 +56,10 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'django_testing.urls'
 
+REST_FRAMEWORK = {
+	'TEST_REQUEST_DEFAULT_FORMAT': 'json',
+}
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -81,6 +85,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'netology_django_testing',
+        'USER': 'postgres',
+        'PASSWORD': '15341534',
         'HOST': '127.0.0.1',
         'PORT': '5432',
     }
