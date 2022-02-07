@@ -19,11 +19,11 @@ class ScopeInlineFormset(BaseInlineFormSet):
             raise ValidationError('Укажите основной раздел')
         if is_main > 1:
             raise ValidationError('Основным может быть только один раздел')
-        return super().super().clean()  # вызываем базовый код переопределяемого метода
+        return super().clean()  # вызываем базовый код переопределяемого метода
 
 class ScopeInline(admin.TabularInline):
     model = Scope
-    fromset = ScopeInlineFormset
+    formset = ScopeInlineFormset
     extra = 1
 
 @admin.register(Article)
