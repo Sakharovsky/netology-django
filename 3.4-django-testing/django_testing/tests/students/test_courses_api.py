@@ -8,7 +8,7 @@ def test_example():
 
 # создание и получение 1ого курса
 @pytest.mark.django_db
-def test_create_course(client, course_factory):
+def test_detail_course(client, course_factory):
     course_factory(_quantity=1)
     course_item = Course.objects.first()
     url = reverse("courses-detail", args=(course_item.id, ))
@@ -16,8 +16,8 @@ def test_create_course(client, course_factory):
     response = client.get(url)
     print(response.data)
     assert response.status_code == 200
-    assert response.data[0].get("id") == course_item.id
-    assert response.data[0].get("name") == course_item.name
+    assert response.data.get("id") == course_item.id
+    assert response.data.get("name") == course_item.name
 
 # получение списка курсов
 @pytest.mark.django_db
