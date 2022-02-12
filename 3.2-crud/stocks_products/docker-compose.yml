@@ -1,0 +1,32 @@
+version: "1.26.0"
+
+networks:
+  backend:
+
+service:
+  psql_stocks:
+    image: postgres:alpine
+    restart: unless-stopped
+    networks:
+      - backend
+    env_file:
+      - .env
+  
+  dj_stocks:
+    image: .
+    networks: 
+      - backend
+    ports: 
+      - "8000:8000"
+    env_file:
+      - .env
+    depends_on:
+      - psql_bd
+  
+  nginx_stocks:
+    image: nginx:alpine
+    restart: unless-stopped
+    networks:
+      - backend
+    ports:
+      - "8181:80"
